@@ -1,9 +1,19 @@
 # p6spy-pretty-format
-Quicky & dirty pretty single line printer for [p6spy](https://p6spy.readthedocs.io/)
+Quicky & dirty pretty single line printer for [p6spy](https://p6spy.readthedocs.io/), that allows to print SQL logs with parameters.
 
-Example:
+Example of hibernate logs:
 
-``
+```
+23:27:47.595 0ms 
+   select
+       this_.id as id1_197_0_,
+       this_.name as name2_197_0_,
+       this_.forDisplay as fordispl3_197_0_ 
+   from
+       categorygroup this_ 
+   where
+       this_.name='Holds'
+   ```
 
 *Note:* This is tested only for Java 8 + Apache tomcat
 
@@ -42,7 +52,6 @@ Set `spy.lislon.pretty` JVM/Env with value:
            categorygroup this_ 
        where
            this_.name='Holds'
-   
    ```
 - `-Dspy.lislon.pretty=SINGLE` single line logs
 ```
