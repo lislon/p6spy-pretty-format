@@ -21,7 +21,7 @@ Example of hibernate logs:
 
 ### For apache projects
 
-1. Move `p6spy-pretty-formatter-0.1.0-jar-with-dependencies.jar` to `$CATALINA_HOME`. The fat jar includes:
+1. Move [p6spy-pretty-formatter-0.1.0-jar-with-dependencies.jar](https://github.com/lislon/p6spy-pretty-format/releases/download/0.1.0/p6spy-pretty-formatter-0.1.0-jar-with-dependencies.jar) to `$CATALINA_HOME`. The fat jar includes:
    1. hibernate of random version (5.5.5.Final)
    2. p6spy (3.9.1)
    3. `org.lislon.p6spy.PrettyFormat` class
