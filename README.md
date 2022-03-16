@@ -1,5 +1,5 @@
 # p6spy-pretty-format
-Quicky & dirty pretty single line printer for [p6spy](https://p6spy.readthedocs.io/), that allows to print SQL logs with parameters.
+Quick & dirty pretty single line printer for [p6spy](https://p6spy.readthedocs.io/), that allows to print SQL logs with parameters.
 
 Example of hibernate logs:
 
@@ -21,25 +21,32 @@ Example of hibernate logs:
 
 ### For apache projects
 
-1. Move [p6spy-pretty-formatter-0.1.0-jar-with-dependencies.jar](https://github.com/lislon/p6spy-pretty-format/releases/download/0.1.0/p6spy-pretty-formatter-0.1.0-jar-with-dependencies.jar) to `$CATALINA_HOME`. The fat jar includes:
-   1. hibernate of random version (5.5.5.Final)
-   2. p6spy (3.9.1)
-   3. `org.lislon.p6spy.PrettyFormat` class
-2. Add somewhere file `p6spy.properties` with following contents:
+1. Copy [p6spy-pretty-formatter-0.1.0-jar-with-dependencies.jar](https://github.com/lislon/p6spy-pretty-format/releases/download/0.1.0/p6spy-pretty-formatter-0.1.0-jar-with-dependencies.jar) to `$CATALINA_HOME` or Global Libraries in IntelliJ IDEA
+
+2. Save file `p6spy.properties` to fylesystem with following contents:
     ```
     driverlist=com.mysql.jdbc.Driver
     appender=com.p6spy.engine.spy.appender.StdoutLogger
     logMessageFormat=org.lislon.p6spy.PrettyFormat
     ```
-3. Add JVM/Env variable `spy.properties` with path to `spy.properties`, i.e. `c:/Users/myuser/spy.properties`
-4. Add p6spy to project's JDBC url like this `jdbc:p6spy:mysql://${mysql.hostname}:${mysql.port}/dbname`
+3. Add to JVM args
+```
+-Dspy.properties=c:/Users/myuser/spy.properties
+-Dspy.lislon.pretty=SINGLE
+```
+4. Replace URL of JDBC connection in application configuration
+```
+jdbc:mysql://${mysql.hostname}:${mysql.port}/dbname
+→
+jdbc:p6spy:mysql://${mysql.hostname}:${mysql.port}/dbname
+```
 
 More detailed instruction: https://p6spy.readthedocs.io/
 
 
-### Chaning format
+### Supported logging formats
 
-Set `spy.lislon.pretty` JVM/Env with value:
+You can change between single/multiline formats by modifying JVM parameter:
 
 - `-Dspy.lislon.pretty=MULTI`
    ```
