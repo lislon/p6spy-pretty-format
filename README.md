@@ -21,7 +21,7 @@ Example of hibernate logs:
 
 ### For apache projects
 
-1. Copy [p6spy-pretty-formatter-0.1.0-jar-with-dependencies.jar](https://github.com/lislon/p6spy-pretty-format/releases/download/0.1.0/p6spy-pretty-formatter-0.1.0-jar-with-dependencies.jar) to `$CATALINA_HOME` or Global Libraries in IntelliJ IDEA
+1. Copy [p6spy-pretty-formatter-0.1.0-jar-with-dependencies.jar](https://github.com/lislon/p6spy-pretty-format/releases/download/0.1.0/p6spy-pretty-formatter-0.1.0-jar-with-dependencies.jar) to `$CATALINA_HOME`. If you are using IntelliJ IDEA with war exploded, you should add this jar to 'Artifacts' section in Project settings (Go to Artifacts -> war exploded -> WEB-INF/Lib -> Add Copy of -> Library Files -> p6spy-pretty-formatter-*.jar) 
 
 2. Save file `p6spy.properties` to fylesystem with following contents:
     ```
